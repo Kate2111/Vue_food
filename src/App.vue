@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <h1 class="bg-blue-500">app</h1>
-  </div>
+  <router-view></router-view>
 </template>
 
 <script setup>
