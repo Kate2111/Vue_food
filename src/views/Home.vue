@@ -16,7 +16,7 @@
     </div>
 </template>
 
-<script setup>
+<script>
     import {onMounted} from 'vue';
     import store from '../store';
     import axiosClient from '../axios-Client';

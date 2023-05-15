@@ -9,32 +9,32 @@ import MealsByIngridient from '../views/MealsByIngridient.vue'
 
 const routes = [
     {
-        path: '/',
+        path: '/Vue_food/',
         name: 'DefaultLayout',
         component: DefaultLayout,
         children: [
             {
-                path: '/',
+                path: '/Vue_food/',
                 name: 'home',
                 component: Home
             },
             {
-                path: '/letter/:letter',
+                path: '/Vue_food/letter/:letter',
                 name: 'byLetter',
                 component: MealList
             },
             {
-                path: '/by-name/:name?',
+                path: '/Vue_food/by-name/:name?',
                 name: 'byName',
                 component: MealsByName
             },
             {
-                path: '/by-letter/:letter?',
+                path: '/Vue_food/by-letter/:letter?',
                 name: 'byLetter',
                 component: MealsByLetter
             },
             {
-                path: '/by-ingridient/:ingridient?',
+                path: '/Vue_food/by-ingridient/:ingridient?',
                 name: 'byIngridient',
                 component: MealsByIngridient
             }
