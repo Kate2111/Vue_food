@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://kate2111.github.io/Vue_food/",
   "scripts": {
     "dev": "vite --port=3000",
     "build": "vite build",
