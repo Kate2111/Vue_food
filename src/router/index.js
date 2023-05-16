@@ -24,7 +24,7 @@ const routes = [
                 component: MealList
             },
             {
-                path: '/Vue_food/by-name/:name?',
+                path: '/Vue_food/by-name',
                 name: 'byName',
                 component: MealsByName
             },

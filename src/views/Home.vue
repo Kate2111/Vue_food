@@ -5,28 +5,15 @@
         </div>
         
         <div class="form__letters">
-            <router-link 
-                :to="{name: 'byLetter', params: {letter}}" 
-                v-for="letter of letters" 
-                :key="letter" 
-                class="letter_active">
-                {{letter}}
+            srbgdrtg
+            <router-link v-for="letter in letters" :key="letter" class="letter_active">
+                <span>{{ letter }}</span>
             </router-link>
         </div>
     </div>
 </template>
 
-<script>
-    import {onMounted} from 'vue';
-    import store from '../store';
-    import axiosClient from '../axios-Client';
-
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split("");
-    onMounted(async() => {
-       const response = await axiosClient.get('/list.php?i=list');
-       console.log(response.data);
-    });
-</script>
+<script></script>
 
 <style scoped>
 
