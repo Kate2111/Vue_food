@@ -13,7 +13,24 @@
     </div>
 </template>
 
-<script></script>
+<script>
+import { onMounted } from 'vue';
+import axiosClient from '../axios-Client';
+
+export default {
+  data() {
+    return {
+      letters: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
+    };
+  },
+  mounted() {
+    onMounted(async () => {
+      const response = await axiosClient.get('/list.php?i=list');
+      console.log(response.data);
+    });
+  }
+};
+</script>
 
 <style scoped>
 
