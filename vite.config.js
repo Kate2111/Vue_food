@@ -8,5 +8,4 @@ export default defineConfig(
       vue(),
     ],
     base: '/Vue_food',
-  
   })
