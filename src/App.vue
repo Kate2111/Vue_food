@@ -17,8 +17,20 @@
     width: 1300px;
     margin: 0 auto;
   }
+  
+  @media( max-width: 1200px) {
+    .container{
+      width: 900px;
+    }
+  }
 
-  @media (max-width: 620px) {
+  @media( max-width: 1023px) {
+    .container{
+      width: 700px;
+    }
+  }
+
+  @media (max-width: 750px) {
     .container {
       width: 550px;
     }

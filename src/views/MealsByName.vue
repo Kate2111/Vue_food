@@ -1,29 +1,32 @@
 <template>
     <div class="form">
+      <div class="container">
         <div class="form__wrapper">
-            <input 
-            type="text" 
-            v-model="keyword"
-            @change="searchMeals"
-            class="form__search" 
-            placeholder="Search for Meals">
+          <input 
+          type="text" 
+          v-model="keyword"
+          @change="searchMeals"
+          class="form__search" 
+          placeholder="Search for Meals">
         </div>
 
         <div class="cards">
-          <!-- <pre>
-            {{ meals }}
-          </pre> -->
-         
           <div class="cards__item" v-for="meal in meals">
-              <img :src="meal.strMealThumb" :alt="meal.strMeal">
+              <RouterLink :to="{name: 'mealDetails', params: {id: meal.idMeal}}">
+                <img 
+                  :src="meal.strMealThumb" 
+                  :alt="meal.strMeal"
+                />
+              </RouterLink>
+              
               <div class="cards__descr">
                 <h3 class="cards__info">{{meal.strMeal}}, {{meal.strArea}}</h3>
-                <a class="cards__button" :href="meal.strYoutube">YouTube</a>
+                <a class="cards__button" :href="meal.strYoutube" target="_blank">YouTube</a>
               </div>
               
           </div>
-
         </div>
+      </div>
     </div>
 </template>
 
@@ -39,24 +42,25 @@ const keyword = ref("");
 const meals = computed(() => store.state.searchedMeals);
 
 function searchMeals() {
+  let word = keyword.value.slice(0, 1).toUpperCase() + keyword.value.slice(1);
   if (keyword.value) {
-    store.dispatch("searchMeals", keyword.value);
+    store.dispatch("searchMeals", word);
   } else {
     store.commit("setSearchedMeals", []);
   }
 }
 
-/* onMounted(() => {
+onMounted(() => {
   keyword.value = route.params.name
   if (keyword.value) {
     searchMeals()
   }
-})  */
+}) 
 </script>
 
 <style scoped>
 .form{
-    margin: 30px 30px 10px;
+  padding: 30px 0;
 }
 .form__wrapper{
     display: flex;
@@ -77,12 +81,26 @@ input:focus {
 
 .cards{
   padding: 30px 20px;
-  width: 1200px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: dense;
   gap: 30px;
 }
+
+
+@media( max-width: 1023px) {
+  .cards{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media( max-width: 600px) {
+  .cards{
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
 
 .cards__item{
   display: grid;
@@ -97,6 +115,7 @@ img{
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   height: 250px;
+  width: 100%;
   object-fit: cover;
 }
 
