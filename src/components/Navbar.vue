@@ -6,7 +6,7 @@
                 <div class="menu__wrapper">
                     <router-link class="menu__link" :to="{name: 'byName'}">Search Meals</router-link>
                     <router-link class="menu__link" :to="{name: 'byLetter'}">Meals By Letter</router-link>
-                    <router-link class="menu__link" :to="{name: 'byIngridient'}">Meals By Ingridients</router-link>
+                    <router-link class="menu__link" :to="{name: 'ingredients'}">Meals By Ingridients</router-link>
                 </div>
             </div>
         </div>
