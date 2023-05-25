@@ -38,15 +38,16 @@ onMounted(() => {
     display: flex;
     justify-content: center;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .letter_active:hover{
     font-weight: 700;
 }
 
-@media (max-width: 620px) {
-    .form__letters {
-        display: none;
+@media (max-width: 450px) {
+    .form__letters{
+       font-size: 12px;
     }
 }
 </style>
