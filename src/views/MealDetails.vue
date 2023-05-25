@@ -2,7 +2,6 @@
     <div class="container">
         <div class="meal-info">
             <div class="meal-info__image">
-                
                 <div class="meal-info__img">
                     <img class="main"
                         :src="meal.strMealThumb" 
@@ -94,6 +93,7 @@
         margin: 20px 0 20px 0;
         padding: 0 0 58% 0;
         overflow: hidden; 
+        border-radius: 50px;
         box-shadow: 2px 2px 20px grey; 
     }
 

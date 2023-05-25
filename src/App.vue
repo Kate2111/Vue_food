@@ -17,6 +17,12 @@
     width: 1300px;
     margin: 0 auto;
   }
+
+  .title{
+    font-size: 36px;
+    width: 100%;
+    padding-left: 7px;
+  }
   
   @media( max-width: 1200px) {
     .container{
@@ -48,26 +54,6 @@
     }
   }
 
-  .cards{
-    padding: 30px 20px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-flow: dense;
-    gap: 30px;
-  }
   
-  
-  @media( max-width: 1023px) {
-    .cards{
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  @media( max-width: 600px) {
-    .cards{
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-  }
   
 </style>

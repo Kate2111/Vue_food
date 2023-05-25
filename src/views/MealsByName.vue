@@ -10,15 +10,13 @@
           placeholder="Search for Meals">
         </div>
 
-        <div class="cards">
-          <MealItem  v-for="meal in meals" :key="meal.idMeal" :meal="meal"/>
-        </div>
+        <meals :meals="meals"/>
       </div>
     </div>
 </template>
 
 <script setup>
-import MealItem from '@/components/MealItem.vue'
+import Meals from '../components/Meals.vue'
 import { computed } from "@vue/reactivity";
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
@@ -30,7 +28,7 @@ const keyword = ref("");
 const meals = computed(() => store.state.searchedMeals);
 
 function searchMeals() {
-  let word = keyword.value.slice(0, 1).toUpperCase() + keyword.value.slice(1);
+  let word = keyword.value.toLowerCase();
   if (keyword.value) {
     store.dispatch("searchMeals", word);
   } else {
@@ -46,7 +44,7 @@ onMounted(() => {
 }) 
 </script>
 
-<style scoped>
+<style>
 .form{
   padding: 30px 0;
 }

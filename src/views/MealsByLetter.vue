@@ -6,15 +6,13 @@
             </router-link>
         </div>
 
-        <div class="cards">
-            <MealItem  v-for="meal in meals" :key="meal.idMeal" :meal="meal"/>
-        </div>
+        <meals :meals="meals"/>
     </div>
      
 </template>
 
 <script setup>
-import MealItem from '@/components/MealItem.vue'
+import Meals from '../components/Meals.vue'
 import { computed } from "@vue/reactivity";
 import { onMounted, watch } from "vue";
 import { useRoute } from "vue-router";

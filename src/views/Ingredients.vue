@@ -1,17 +1,24 @@
 <template>
     <div class="container">
+        <div class="form__wrapper">
+            <input 
+            type="text" 
+            v-model="keyword"
+            class="form__search" 
+            placeholder="Search for ingredients">
+        </div>
         <div class="ingredients">
-            <h1 class="ingredients__title">Ingredients</h1>
+            <h1 class="title">Ingredients</h1>
             <router-link 
                 class="ingredient" 
                 :to="{
                     name: 'byIngredient', 
-                    params: {ingredient: ingredient.idIngredient}}" 
-                v-for="ingredient in ingredients" 
+                    params: {ingredient: ingredient.strIngredient}}" 
+                v-for="ingredient in computedIngredients" 
                 :key="ingredient.idIngredient"
             >
                 <div>{{ingredient.strIngredient}}</div>
-            </router-link> >
+            </router-link> 
         </div>
     </div>
     
@@ -20,8 +27,17 @@
 <script setup>
 import axiosClient from '../axios-Client';
 import { onMounted, ref } from 'vue'
+import { computed } from "@vue/reactivity"
 
-const ingredients = ref([])
+const keyword = ref('');
+const ingredients = ref([]);
+const computedIngredients = computed(() => {
+    if (!computedIngredients) return ingredients;
+    return ingredients.value.filter((i) => 
+        i.strIngredient.toLowerCase().includes(keyword.value.toLowerCase()))
+})
+
+
 onMounted(() => {
     axiosClient.get('list.php?i=list')
         .then(({data}) => {
@@ -32,17 +48,15 @@ onMounted(() => {
 </script>
 
 <style scoped>
+
+.form__wrapper{
+    margin-top: 30px;
+}
 .ingredients{
     display: flex;
     flex-wrap: wrap;
     gap: 15px 25px;
     justify-content: center;
-    margin-top: 30px;
-}
-
-.ingredients__title{
-    font-size: 36px;
-    width: 100%;
 }
 
 .ingredient{

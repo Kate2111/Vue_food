@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
 import DefaultLayout from '../components/DefaultLayout.vue'
-import LoginPage from '../components/LoginPage.vue'
 import Home from '../views/Home.vue'
 import MealsByName from '../views/MealsByName.vue'
 import MealsByLetter from '../views/MealsByLetter.vue'
@@ -47,12 +46,7 @@ const routes = [
             }
         ]
     },
-    {
-        path: '/Vue_food/guest',
-        name: 'LoginPage',
-        component: LoginPage
-    }
-    
+   
 ];
 
 const router = createRouter({
