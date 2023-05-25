@@ -2,7 +2,10 @@
 
 https://kate2111.github.io/Vue_food/
 
-Работа с поиском через API www.themealdb.
+API www.themealdb
+<br>
 Библиотеки Axios, Vuex
+<br>
 Сборка Vite
+<br>
 Маршрутизатор Vue-router 
