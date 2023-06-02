@@ -9,13 +9,22 @@
         
         <div class="card__descr">
           <h3 class="card__info">{{meal.strMeal}}, {{meal.strArea}}</h3>
-          <my-button :href="meal.strYoutube" >YouTube</my-button>
+          <div class="wrapper_btns">
+            <my-button :href="meal.strYoutube" >YouTube</my-button>
+            <button @click="toggle" class="icon">
+              
+              <img v-if="!active" src="../../src/icons/heart.png" alt="heart">
+              <img v-if="active" src="../../src/icons/heart-red.png" alt="heart">
+              <!-- <unicon v-if="!active" name="heart-sign" fill="grey" hover-fill="red"></unicon>
+              <unicon v-if="active" name="heart-sign" fill="red"></unicon> -->
+            </button>
+          </div>
         </div>
         
     </div>
 </template>
 
-<script setup>
+<!-- <script setup>
     import MyButton from '@/components/UI/MyButton.vue'
     const {meal} = defineProps({
         meal: {
@@ -23,8 +32,34 @@
             type: Object,
         }
     })
-</script>
 
+    let active = false
+
+    function toggle() {
+      console.log(active)
+      active = !active
+    }
+</script> -->
+<script>
+ export default {
+        props: {
+          meal: {
+            required: true,
+            type: Object,
+          }
+        },
+        data() {
+          return {
+            active: false,
+          }
+        },
+        methods: {
+          toggle: function() {
+            this.active = !this.active;
+        }
+    }
+    }
+</script>
 <style>
 
 .card__item{
@@ -52,6 +87,11 @@
     justify-content: space-between;
   }
 
+  .wrapper_btns{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 10px;
+  }
 
-  
 </style>

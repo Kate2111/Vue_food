@@ -2,7 +2,10 @@
     <header class="menu">
         <div class="container">
             <div class="menu__inner">
-                <router-link class="menu__link" :to="{name: 'home'}">Home</router-link>
+                <router-link class="menu__link-favorites" :to="{name: 'home'}">
+                    Home 
+                    <unicon name="heart-sign" fill="grey"></unicon>
+                </router-link>
                 <div class="menu__wrapper">
                     <router-link class="menu__link" :to="{name: 'byName'}">Search Meals</router-link>
                     <router-link class="menu__link" :to="{name: 'byLetter'}">Meals By Letter</router-link>
@@ -46,6 +49,12 @@ export default {
         text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.6);
        
     }
+
+    .menu__link-favorites{
+        display: flex;
+        gap: 4px;
+    }
+
 
     @media (max-width: 620px) {
         .menu__wrapper {
